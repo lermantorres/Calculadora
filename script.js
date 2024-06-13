@@ -14,12 +14,28 @@ item.onclick =()=>{
         display.innerText = string.substr(0,string.length-1);  // devuelvo caracteres del string
     }else if (display.innerText !="" && item.id == 'equal'){
       display.innerText = eval(display.innerText);
-    }else if (display.innerText == "" && item.id == 'equal'){
+    }else if (display.innerText.trim () == "" && item.id == 'equal'){
         display.innerText = "ERROR";
-        setTimeout(()=> (display.innerText == ""),2000); 
+        setTimeout(() => {
+            display.innerText = "";
+        }, 2000);
     }else{
         display.innerText += item.id;
     }
         
 }
 })
+
+const themebtn = document.querySelector(".thema_toggler ");
+const calculator = document.querySelector(".calculator");
+
+let isdark = true;
+
+themebtn.onclick=()=>{
+  calculator.classList.toggle('dark');
+  themebtn.classList.toggle('active');
+  isdark = !isdark;
+}
+
+
+
